@@ -33,11 +33,6 @@ let urlParams = {
     activity_filter: badmintonActivityId,
     venue_filter: 0
 };
-Date.prototype.addDays = function(days) {
-    var date = new Date(this.valueOf());
-    date.setDate(date.getDate() + days);
-    return date;
-}
 const startDate = new Date();
 let dates = [startDate];
 for (let i = 1; i < 16; i++) {
