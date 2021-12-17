@@ -2,11 +2,12 @@
 
 Instructions:
 
-1. Go to https://members.myactivesg.com/facilities/result
-2. Log into account (username: wjrm500@gmail.com; password: the one beginning with "f")
-3. Go back to https://members.myactivesg.com/facilities/result
-4. Open browser Dev Tools
-5. Copy and paste this script in
+1. Open Mozilla Firefox (this won't work in Google Chrome due to "insufficient resources" error)
+2. Go to https://members.myactivesg.com/facilities/result
+3. Log into account (click "Book" in top right corner)
+4. Go back to https://members.myactivesg.com/facilities/result
+5. Open browser Dev Tools
+6. Copy and paste this script in
 
 */
 
@@ -17,7 +18,11 @@ NodeList.prototype.map = Array.prototype.map;
 
 const baseUrl = 'https://members.myactivesg.com/facilities/result';
 let venueSelectId = 'venue_filter';
-const venueIds = document.getElementById(venueSelectId).children.map((x) => parseInt(x.value)).filter((x) => !isNaN(x));
+const venueIds = document.getElementById(venueSelectId)
+    .children
+    .map((x) => parseInt(x.value))
+    .filter((x) => !isNaN(x))
+    .sort();
 let venues = {};
 document.getElementById(venueSelectId).children.forEach(function(x) {
     let venueId = parseInt(x.value);
